@@ -1,0 +1,9 @@
+name: FUSION_NETWORK_INTERFACE
+kind: pair
+bits: 8
+values:
+  0: Unknown
+  1: Wired
+  2: Wi-Fi
+  3: Bridge
+  4: Soft AP

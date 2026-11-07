@@ -1,0 +1,92 @@
+pgn: 126720
+id: garminAutopilotInt32FieldRecordNoValue
+description: 'Garmin Autopilot: Int32 Field Record, No Value'
+type: Fast
+variantOrder: 104
+priority: 7
+missing:
+- Fields
+- Resolution
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Garmin
+  match: 229
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: subProtocolId
+  name: Sub-protocol ID
+  type: LOOKUP
+  bits: 16
+  description: Autopilot transport
+  match: 5904
+  lookup: GARMIN_MESSAGE_ID
+  primaryKey: true
+- id: wrapperByte1
+  name: Wrapper Byte 1
+  type: UINT8
+  match: 4
+- id: wrapperByte2
+  name: Wrapper Byte 2
+  type: UINT8
+  match: 4
+- id: fieldGroup
+  name: Field Group
+  type: UINT8
+  description: Int32 field record
+  match: 13
+- id: recordType
+  name: Record Type
+  type: UINT8
+  description: No value
+  match: 2
+- id: recordByte8
+  name: Record Byte 8
+  type: UINT8
+  description: 0x0A in every field record
+- id: field
+  name: Field
+  type: LOOKUP
+  bits: 8
+  lookup: GARMIN_AUTOPILOT_FIELD
+  primaryKey: true
+- id: fieldNamespace
+  name: Field Namespace
+  type: UINT8
+  description: High byte of the 16-bit field identifier
+  primaryKey: true
+- id: recordByte11
+  name: Record Byte 11
+  type: UINT8
+  description: 0x11 in every field record
+- id: valueCount
+  name: Value Count
+  type: UINT8
+  description: 0 in records without a value, 1 in records with one
+notes: |-
+  Garmin autopilot field record (sub-protocol 5904). Field Group 10..16 carries a value whose data
+  type is Field Group minus 10 (0 float, 1 int8, 2 int16, 3 int32, 4 uint8, 5 uint16, 6 uint32);
+  Field Group 17 carries no value. The 16-bit field identifier (Field low byte, Field Namespace high
+  byte) is the same identifier the scalar frames (Field Group 0..6) use for the same quantity, and
+  both carry the same value. The low four bits of Value Size are the value's length in bytes.
+samples:
+- raw: "2023-01-01-00:00:00.000,7,126720,0,255,13,e5,98,10,17,04,04,0d,02,0a,a6,0c,11,00"
+  expects:
+    subProtocolId: 5904
+    fieldGroup: 13
+    recordType: 2
+    field: 166
+    fieldNamespace: 12
+    valueCount: 0

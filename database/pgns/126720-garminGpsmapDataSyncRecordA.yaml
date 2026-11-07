@@ -1,0 +1,81 @@
+pgn: 126720
+id: garminGpsmapDataSyncRecordA
+description: 'Garmin: GPSMAP Data-Sync Record A'
+type: Fast
+variantOrder: 87
+priority: 7
+missing:
+- Fields
+- FieldLengths
+- Resolution
+explanation: 'Garmin sub-protocol 1810, sent by GPSMAP chartplotters: the destination-waypoint record. The fields mirror those of PGN 129284 (Navigation Data) and use its resolutions.'
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Garmin
+  match: 229
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: subProtocolId
+  name: Sub-protocol ID
+  type: LOOKUP
+  bits: 16
+  description: Destination waypoint
+  match: 1810
+  lookup: GARMIN_MESSAGE_ID
+  primaryKey: true
+- id: wrapperByte1
+  name: Wrapper Byte 1
+  type: UINT8
+  match: 2
+- id: wrapperByte2
+  name: Wrapper Byte 2
+  type: UINT8
+  match: 2
+- id: seqId
+  name: Sequence ID
+  type: UINT8
+- id: distanceToDestination
+  name: Distance to Destination
+  type: LENGTH_UFIX32_CM
+- id: etaTime
+  name: ETA Time
+  type: TIME
+  bits: 32
+  resolution: 0.0001
+  description: Seconds since midnight
+  rangeMin: 0.0
+  rangeMax: 86401.0
+- id: etaDate
+  name: ETA Date
+  type: DATE
+- id: destinationWaypointNumber
+  name: Destination Waypoint Number
+  type: UINT32
+- id: destinationLatitude
+  name: Destination Latitude
+  type: GEO_LAT_FIX32
+- id: destinationLongitude
+  name: Destination Longitude
+  type: GEO_LON_FIX32
+samples:
+- raw: "2023-01-01-00:00:00.000,7,126720,10,255,29,e5,98,12,07,02,02,ff,00,01,13,00,50,e8,48,2e,63,4f,01,00,00,00,ff,ff,ff,7f,ff,ff,ff,7f"
+  expects:
+    subProtocolId: 1810
+    seqId: ~
+    distanceToDestination: 12454.40
+    destinationWaypointNumber: 1
+    destinationLatitude: ~
+    destinationLongitude: ~

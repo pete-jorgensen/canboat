@@ -6,11 +6,21 @@ values:
   10: Mode State
   11: Heading to Steer
   62: Response Setting
-  114: Rate of Turn
-  115: Rate of Turn Order
-  116: Turn Angle Order
+  112: Desired Pump Status
+  113: Actual Pump Status
+  114: Desired Rudder Rate
+  115: Actual Rudder Rate
+  116: Pump PWM
   158: System Voltage
-  161: Turn Angle Measured
+  159: Motor Current
+  160: Encoder Angle
+  161: Motor RPM
+  162: Clutch Current
+  163: Clutch PWM
+  164: ECU Temperature
+  165: Commanded Rudder Angle
+  166: FET Temperature
+  167: Motor Voltage
   239: Engine RPM B
   240: Engine RPM A
   246: Speed

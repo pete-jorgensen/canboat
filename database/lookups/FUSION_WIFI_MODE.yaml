@@ -1,0 +1,11 @@
+name: FUSION_WIFI_MODE
+kind: pair
+bits: 8
+values:
+  0: Station
+  1: IBSS
+  2: Access Point
+  3: P2P Group Owner
+  4: P2P Group Formation
+  5: Mesh
+  6: Disabled

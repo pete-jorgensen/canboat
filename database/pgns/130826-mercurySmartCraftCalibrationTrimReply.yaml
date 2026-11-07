@@ -1,0 +1,71 @@
+pgn: 130826
+id: mercurySmartCraftCalibrationTrimReply
+description: 'Mercury: SmartCraft Calibration, Trim Reply'
+type: Fast
+variantOrder: 0
+priority: 7
+explanation: |-
+  A gateway's answer to a Trim Request: the engine trim sender before calibration, as a fraction 0 .. 1
+  (the sender's raw count times 0.0001). The trim calibration dialog shows it times 100.
+  Tried before the general definition, whose Data block this replaces for this Operation.
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Mercury Marine
+  match: 144
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: targetAddress
+  name: Target Address
+  type: UINT8
+  description: 255 = all devices
+- id: operation
+  name: Operation
+  type: LOOKUP
+  bits: 8
+  lookup: MERCURY_CALIBRATION_OPERATION
+  description: Trim Reply
+  match: 1
+  primaryKey: true
+- id: deviceSelector
+  name: Device Selector
+  type: UNSIGNED_INTEGER
+  bits: 2
+  description: Compared with the receiving device's own selector; 0 or 1
+- id: reserved7
+  name: Reserved
+  type: RESERVED
+  bits: 6
+- id: index
+  name: Index
+  type: UINT8
+  description: Engine slot 0 .. 3; a device setting assigns each slot to an engine instance
+- id: value
+  name: Value
+  type: FLOAT
+  description: Uncalibrated trim sender fraction, 0 .. 1
+samples:
+- raw: "2023-01-01-00:00:00.000,7,130826,2,255,10,90,98,ff,01,00,01,b0,e1,e9,3d"
+  expects:
+    manufacturerCode: "Mercury Marine"
+    operation: Trim Reply
+    index: 1
+    value: 0.1142
+- raw: "2023-01-01-00:00:00.000,7,130826,2,255,10,90,98,ff,01,00,00,00,00,00,00"
+  expects:
+    manufacturerCode: "Mercury Marine"
+    operation: Trim Reply
+    index: 0
+    value: 0.0000

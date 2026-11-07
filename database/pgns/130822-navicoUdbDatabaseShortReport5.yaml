@@ -2,7 +2,7 @@ pgn: 130822
 id: navicoUdbDatabaseShortReport5
 description: 'Navico: UDB Database, Short Report 5'
 type: Fast
-variantOrder: 6
+variantOrder: 7
 priority: 3
 missing:
 - Fields

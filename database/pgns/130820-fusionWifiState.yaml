@@ -1,0 +1,59 @@
+pgn: 130820
+id: fusionWifiState
+description: 'Fusion: WiFi State'
+type: Fast
+variantOrder: 72
+priority: 7
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Fusion Electronics
+  match: 419
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: messageId
+  name: Message ID
+  type: LOOKUP
+  bits: 16
+  description: WiFi State
+  match: 16393
+  lookup: FUSION_STATUS_MESSAGE_ID
+  primaryKey: true
+- id: mode
+  name: Mode
+  type: LOOKUP
+  bits: 8
+  lookup: FUSION_WIFI_MODE
+- id: state
+  name: State
+  type: LOOKUP
+  bits: 8
+  lookup: FUSION_WIFI_STATE
+- id: rssi
+  name: RSSI
+  type: INT8
+notes: |-
+  Broadcast by the head unit. A unit with Wi-Fi off reports Disabled, Interface Disabled and RSSI -128.
+samples:
+- raw:
+  - "2023-01-01-00:00:00.000,7,130820,13,255,8,a0,07,a3,99,09,40,06,01"
+  - "2023-01-01-00:00:00.000,7,130820,13,255,2,a1,80"
+  expects:
+    manufacturerCode: "Fusion Electronics"
+    industryCode: "Marine Industry"
+    messageId: "WiFi State"
+    mode: "Disabled"
+    state: "Interface Disabled"
+    rssi: -128

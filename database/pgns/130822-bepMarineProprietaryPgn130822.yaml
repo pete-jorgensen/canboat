@@ -2,7 +2,7 @@ pgn: 130822
 id: bepMarineProprietaryPgn130822
 description: 'BEP Marine: Proprietary PGN 130822'
 type: Fast
-variantOrder: 10
+variantOrder: 11
 missing:
 - Fields
 - FieldLengths

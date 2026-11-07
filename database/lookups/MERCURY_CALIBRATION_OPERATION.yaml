@@ -1,0 +1,12 @@
+name: MERCURY_CALIBRATION_OPERATION
+kind: pair
+bits: 8
+values:
+  0: Trim Request
+  1: Trim Reply
+  2: Trim Tab Request
+  3: Trim Tab Reply
+  4: Tank Request
+  5: Tank Reply
+  6: Reset Fuel Used
+  7: Subtract Fuel Used

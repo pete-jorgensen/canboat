@@ -1,0 +1,91 @@
+pgn: 126720
+id: garminAutopilotUint32Field
+description: 'Garmin Autopilot: Uint32 Field'
+type: Fast
+variantOrder: 94
+priority: 7
+missing:
+- Fields
+- Resolution
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Garmin
+  match: 229
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: subProtocolId
+  name: Sub-protocol ID
+  type: LOOKUP
+  bits: 16
+  description: Autopilot transport
+  match: 5904
+  lookup: GARMIN_MESSAGE_ID
+  primaryKey: true
+- id: wrapperByte1
+  name: Wrapper Byte 1
+  type: UINT8
+  match: 4
+- id: wrapperByte2
+  name: Wrapper Byte 2
+  type: UINT8
+  match: 4
+- id: fieldGroup
+  name: Field Group
+  type: UINT8
+  description: Uint32 value
+  match: 6
+- id: field
+  name: Field
+  type: LOOKUP
+  bits: 8
+  lookup: GARMIN_AUTOPILOT_FIELD
+  primaryKey: true
+- id: fieldNamespace
+  name: Field Namespace
+  type: UINT8
+  description: High byte of the 16-bit field identifier
+  primaryKey: true
+- id: value
+  name: Value
+  type: UINT32
+notes: |-
+  Garmin autopilot scalar transport (sub-protocol 5904): one named value per frame. The Field Group
+  byte is the value's data type (0 float, 1 int8, 2 int16, 3 int32, 4 uint8, 5 uint16, 6 uint32) and
+  the frame length follows from it. The 16-bit field identifier is the Field byte (low) and the Field
+  Namespace byte (high); Field Record frames (Field Group 10..17) carry the same identifiers.
+  This variant decodes the fields of its type that have no variant of their own.
+samples:
+- raw: "2023-01-01-00:00:00.000,7,126720,0,255,13,e5,98,10,17,04,04,06,57,0b,df,00,00,00"
+  expects:
+    subProtocolId: 5904
+    fieldGroup: 6
+    field: 87
+    fieldNamespace: 11
+    value: 223
+- raw: "2023-01-01-00:00:00.000,7,126720,0,255,13,e5,98,10,17,04,04,06,57,0b,93,00,00,00"
+  expects:
+    subProtocolId: 5904
+    fieldGroup: 6
+    field: 87
+    fieldNamespace: 11
+    value: 147
+- raw: "2023-01-01-00:00:00.000,7,126720,0,255,13,e5,98,10,17,04,04,06,57,0b,ff,00,00,00"
+  expects:
+    subProtocolId: 5904
+    fieldGroup: 6
+    field: 87
+    fieldNamespace: 11
+    value: 255

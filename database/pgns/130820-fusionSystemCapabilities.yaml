@@ -44,7 +44,8 @@ notes: |-
   The bit names come from Garmin's own decoder in the Fusion Audio Android app,
   which reads this message as one little-endian 64-bit word and tests each
   feature with a single-bit mask. Bits 27-32, 40, 49 and 51-63 have no name in
-  the app; bits 27-31, 51 and 52 are nevertheless set on real units.
+  the app; bits 27-31, 51 and 52 are nevertheless set on real units. Bit 55
+  advertises WPA3 Wi-Fi security.
 
   Static: identical across power cycles, a firmware update and a factory reset
   on the MS-RA70N, and across six days and power cycles on the MS-WB670. Sent

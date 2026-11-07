@@ -81,10 +81,10 @@ values:
   name: Engine 1 Idle RPM Setpoint
   type: UINT16
 - value: 432
-  name: Engine 0 Fuel Used
+  name: Engine 0 Fuel Used Since Fill
   type: VOLUME_UFIX32_DML
 - value: 433
-  name: Engine 1 Fuel Used
+  name: Engine 1 Fuel Used Since Fill
   type: VOLUME_UFIX32_DML
 - value: 448
   name: Engine 0 Fuel Used Trip

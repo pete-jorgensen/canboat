@@ -1,0 +1,12 @@
+name: FUSION_WIFI_STATE
+kind: pair
+bits: 8
+values:
+  0: Disconnected
+  1: Interface Disabled
+  2: Inactive
+  3: Scanning
+  4: Connecting
+  5: Associated
+  6: Connected
+  7: Unknown

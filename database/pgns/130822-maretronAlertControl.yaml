@@ -2,7 +2,7 @@ pgn: 130822
 id: maretronAlertControl
 description: 'Maretron: Alert Control'
 type: Fast
-variantOrder: 9
+variantOrder: 10
 priority: 7
 missing:
 - Fields

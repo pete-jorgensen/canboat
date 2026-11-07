@@ -1,0 +1,76 @@
+pgn: 130826
+id: mercurySmartCraftFuelUsedReset
+description: 'Mercury: SmartCraft Fuel Used Reset'
+type: Fast
+variantOrder: 5
+priority: 7
+explanation: |-
+  Resets one fuel used counter of one engine to 0. The counters are the Fuel Used keys of PGN 130824.
+  Tried before the general definition.
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Mercury Marine
+  match: 144
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: targetAddress
+  name: Target Address
+  type: UINT8
+  description: 255 = all devices
+- id: operation
+  name: Operation
+  type: LOOKUP
+  bits: 8
+  lookup: MERCURY_CALIBRATION_OPERATION
+  description: Reset Fuel Used
+  match: 6
+  primaryKey: true
+- id: deviceSelector
+  name: Device Selector
+  type: UNSIGNED_INTEGER
+  bits: 2
+  description: Compared with the receiving device's own selector; 0 or 1
+- id: reserved7
+  name: Reserved
+  type: RESERVED
+  bits: 6
+- id: engineInstance
+  name: Engine Instance
+  type: UINT8
+- id: counter
+  name: Counter
+  type: LOOKUP
+  bits: 8
+  lookup: MERCURY_FUEL_USED_COUNTER
+samples:
+- raw:
+  - "2023-01-01-00:00:00.000,7,130826,8,255,8,a0,07,90,98,ff,06,00,00"
+  - "2023-01-01-00:00:00.000,7,130826,8,255,2,a1,01"
+  expects:
+    manufacturerCode: "Mercury Marine"
+    operation: Reset Fuel Used
+    deviceSelector: 0
+    engineInstance: 0
+    counter: Trip
+- raw:
+  - "2023-01-01-00:00:00.000,7,130826,8,255,8,a0,07,90,98,ff,06,00,00"
+  - "2023-01-01-00:00:00.000,7,130826,8,255,2,a1,00"
+  expects:
+    manufacturerCode: "Mercury Marine"
+    operation: Reset Fuel Used
+    deviceSelector: 0
+    engineInstance: 0
+    counter: Since Fill

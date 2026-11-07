@@ -2,7 +2,7 @@ pgn: 130822
 id: navicoUdbDatabaseBulkReport2
 description: 'Navico: UDB Database, Bulk Report 2'
 type: Fast
-variantOrder: 3
+variantOrder: 4
 priority: 3
 missing:
 - Fields

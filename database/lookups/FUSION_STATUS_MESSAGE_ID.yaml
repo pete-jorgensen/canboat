@@ -3,6 +3,12 @@ kind: pair
 bits: 16
 values:
   0: Unknown
+  16393: WiFi State
+  16397: Interface IP Setting
+  16398: DHCP Server Config
+  16400: Interface State
+  16401: Network Type
+  16402: LCD Brightness
   32769: API Version
   32770: Source
   32771: Source Count

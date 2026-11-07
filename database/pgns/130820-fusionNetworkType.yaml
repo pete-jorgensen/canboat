@@ -1,0 +1,54 @@
+pgn: 130820
+id: fusionNetworkType
+description: 'Fusion: Network Type'
+type: Fast
+variantOrder: 76
+priority: 7
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Fusion Electronics
+  match: 419
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: messageId
+  name: Message ID
+  type: LOOKUP
+  bits: 16
+  description: Network Type
+  match: 16401
+  lookup: FUSION_STATUS_MESSAGE_ID
+  primaryKey: true
+- id: configResponse
+  name: Configuration Response
+  type: LOOKUP
+  bits: 8
+  lookup: FUSION_CONFIG_RESPONSE
+- id: networkType
+  name: Network Type
+  type: LOOKUP
+  bits: 8
+  lookup: FUSION_NETWORK_TYPE
+notes: |-
+  Broadcast by the head unit.
+samples:
+- raw:
+  - "2023-01-01-00:00:00.000,7,130820,13,255,8,a0,06,a3,99,11,40,00,01"
+  expects:
+    manufacturerCode: "Fusion Electronics"
+    industryCode: "Marine Industry"
+    messageId: "Network Type"
+    configResponse: "Get Configuration"
+    networkType: "Wired Only"

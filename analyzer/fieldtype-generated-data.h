@@ -176,6 +176,13 @@ FieldType fieldTypeList[] = {
      .unit = "rad",
      .physical = &ANGLE},
 
+    {.name = "FLOAT_RAD_UNSIGNED",
+     .description = "32 bit IEEE-754 floating point angle in radians on the full circle, 0 .. 2 pi",
+     .baseFieldType = "FLOAT",
+     .unit = "rad",
+     .hasSign = False,
+     .physical = &ANGLE},
+
     {.name = "FLOAT_PPM",
      .description = "32 bit IEEE-754 floating point concentration in ppm",
      .baseFieldType = "FLOAT",
@@ -811,6 +818,12 @@ FieldType fieldTypeList[] = {
      .description = "Electrical current",
      .baseFieldType = "FIX16",
      .resolution = 0.1,
+     .physical = &ELECTRICAL_CURRENT},
+
+    {.name = "CURRENT_FIX16_CA",
+     .description = "Electrical current",
+     .baseFieldType = "FIX16",
+     .resolution = 0.01,
      .physical = &ELECTRICAL_CURRENT},
 
     {.name = "CURRENT_FIX24_CA",

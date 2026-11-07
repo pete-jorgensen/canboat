@@ -1,0 +1,58 @@
+pgn: 130820
+id: fusionServerInfo
+description: 'Fusion: Server Info'
+type: Fast
+variantOrder: 80
+priority: 7
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Fusion Electronics
+  match: 419
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: messageId
+  name: Message ID
+  type: LOOKUP
+  bits: 16
+  description: Server Info
+  match: 32846
+  lookup: FUSION_STATUS_MESSAGE_ID
+  primaryKey: true
+- id: infoType
+  name: Info Type
+  type: UINT8
+  primaryKey: true
+- id: info
+  name: Info
+  type: STRING_LZ
+notes: |-
+  One message per Info Type, each carrying one string. Info Type 7 is a MAC address in text form
+  and Info Type 8 is the product name. The meaning of the other types is not established.
+samples:
+- raw: "2023-01-01-00:00:00.000,7,130820,13,255,15,a3,99,4e,80,08,08,4d,53,2d,52,41,36,37,30,00"
+  expects:
+    manufacturerCode: "Fusion Electronics"
+    industryCode: "Marine Industry"
+    messageId: "Server Info"
+    infoType: 8
+    info: "MS-RA670"
+- raw: "2023-01-01-00:00:00.000,7,130820,13,255,12,a3,99,4e,80,04,05,66,61,6c,73,65,00"
+  expects:
+    manufacturerCode: "Fusion Electronics"
+    industryCode: "Marine Industry"
+    messageId: "Server Info"
+    infoType: 4
+    info: "false"

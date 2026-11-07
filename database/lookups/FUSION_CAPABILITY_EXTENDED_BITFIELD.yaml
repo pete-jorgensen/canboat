@@ -1,0 +1,5 @@
+name: FUSION_CAPABILITY_EXTENDED_BITFIELD
+kind: bit
+bits: 48
+values:
+  1: Crossover Type

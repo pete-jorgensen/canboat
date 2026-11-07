@@ -1,0 +1,6 @@
+name: FUSION_IP_MODE
+kind: pair
+bits: 8
+values:
+  0: DHCP
+  1: Static

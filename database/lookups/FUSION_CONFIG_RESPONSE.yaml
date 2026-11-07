@@ -1,0 +1,8 @@
+name: FUSION_CONFIG_RESPONSE
+kind: pair
+bits: 8
+values:
+  0: Get Configuration
+  1: Set Configuration Success
+  2: Set Configuration Fail
+  3: Configuration Reset

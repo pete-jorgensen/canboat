@@ -1,0 +1,101 @@
+pgn: 126720
+id: garminGnssPositionErrorAndDop
+description: 'Garmin: GNSS Position Error and DOP'
+type: Fast
+variantOrder: 86
+priority: 7
+explanation: 'Sent by a Garmin chartplotter that publishes its own GNSS position. This family has no Message ID slot: after the two wrapper bytes (0x04 0x04) the 56-byte body is fourteen little-endian IEEE-754 float32 values. Overall Position Error is the root sum square of the horizontal and vertical errors, and PDOP that of HDOP and VDOP. The three position errors are twice the receiver''s own estimate and saturate at 731.529; the dilutions of precision saturate at 99.99. Values 4-9 and 14 are zero from some senders and filled by others; their meaning is unknown.'
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Garmin
+  match: 229
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: subProtocolId
+  name: Sub-protocol ID
+  type: LOOKUP
+  bits: 16
+  description: GNSS position error and DOP
+  match: 23
+  lookup: GARMIN_MESSAGE_ID
+  primaryKey: true
+- id: wrapperByte1
+  name: Wrapper Byte 1
+  type: UINT8
+  match: 4
+- id: wrapperByte2
+  name: Wrapper Byte 2
+  type: UINT8
+  match: 4
+- id: horizontalPositionError
+  name: Horizontal Position Error
+  type: FLOAT
+  unit: m
+- id: verticalPositionError
+  name: Vertical Position Error
+  type: FLOAT
+  unit: m
+- id: overallPositionError
+  name: Overall Position Error
+  type: FLOAT
+  unit: m
+- id: value4
+  name: Value 4
+  type: FLOAT
+- id: value5
+  name: Value 5
+  type: FLOAT
+- id: value6
+  name: Value 6
+  type: FLOAT
+- id: value7
+  name: Value 7
+  type: FLOAT
+- id: value8
+  name: Value 8
+  type: FLOAT
+- id: value9
+  name: Value 9
+  type: FLOAT
+- id: hdop
+  name: HDOP
+  type: FLOAT
+- id: vdop
+  name: VDOP
+  type: FLOAT
+- id: pdop
+  name: PDOP
+  type: FLOAT
+- id: tdop
+  name: TDOP
+  type: FLOAT
+- id: value14
+  name: Value 14
+  type: FLOAT
+samples:
+- raw: "2023-01-01-00:00:00.000,7,126720,10,255,62,e5,98,17,00,04,04,00,03,54,41,13,61,89,41,ed,85,ad,41,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,34,65,5e,3f,85,ed,d2,3f,9f,71,ee,3f,00,7a,82,3f,00,00,00,00"
+  expects:
+    subProtocolId: 23
+    wrapperByte1: 4
+    wrapperByte2: 4
+    value4: 0
+    value14: 0
+- raw: "2023-01-01-00:00:00.000,7,126720,10,255,62,e5,98,17,00,04,04,00,00,c0,40,00,00,c0,40,b6,c3,07,41,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,6c,e5,35,3f,dd,a9,98,3f,80,b3,b1,3f,76,a0,31,3f,00,00,00,00"
+  expects:
+    subProtocolId: 23
+    horizontalPositionError: 6.0
+    verticalPositionError: 6.0
+    value14: 0

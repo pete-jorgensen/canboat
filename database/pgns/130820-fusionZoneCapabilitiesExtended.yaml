@@ -38,8 +38,9 @@ fields:
   lookupBits: FUSION_CAPABILITY_BITFIELD
 - id: zone1Extra
   name: Zone 1 Extra
-  type: BINARY
+  type: BITLOOKUP
   bits: 48
+  lookupBits: FUSION_CAPABILITY_EXTENDED_BITFIELD
 - id: zone2Capabilities
   name: Zone 2 Capabilities
   type: BITLOOKUP
@@ -47,8 +48,9 @@ fields:
   lookupBits: FUSION_CAPABILITY_BITFIELD
 - id: zone2Extra
   name: Zone 2 Extra
-  type: BINARY
+  type: BITLOOKUP
   bits: 48
+  lookupBits: FUSION_CAPABILITY_EXTENDED_BITFIELD
 - id: zone3Capabilities
   name: Zone 3 Capabilities
   type: BITLOOKUP
@@ -56,8 +58,9 @@ fields:
   lookupBits: FUSION_CAPABILITY_BITFIELD
 - id: zone3Extra
   name: Zone 3 Extra
-  type: BINARY
+  type: BITLOOKUP
   bits: 48
+  lookupBits: FUSION_CAPABILITY_EXTENDED_BITFIELD
 - id: zone4Capabilities
   name: Zone 4 Capabilities
   type: BITLOOKUP
@@ -65,8 +68,9 @@ fields:
   lookupBits: FUSION_CAPABILITY_BITFIELD
 - id: zone4Extra
   name: Zone 4 Extra
-  type: BINARY
+  type: BITLOOKUP
   bits: 48
+  lookupBits: FUSION_CAPABILITY_EXTENDED_BITFIELD
 - id: globalCapabilities
   name: Global Capabilities
   type: BITLOOKUP
@@ -74,8 +78,9 @@ fields:
   lookupBits: FUSION_CAPABILITY_BITFIELD
 - id: globalExtra
   name: Global Extra
-  type: BINARY
+  type: BITLOOKUP
   bits: 48
+  lookupBits: FUSION_CAPABILITY_EXTENDED_BITFIELD
 notes: |-
   Five 8-byte records -- four zone slots and a global slot, in the same order
   as the PGN 130820 "Capabilities" status (message id 32798).
@@ -87,11 +92,12 @@ notes: |-
     Capabilities (32798)  Zone 1 0xFDFF  Zone 2 0xBDFF  Zone 3 0xB7FF  Zone 4 0  Global 0
     Extended     (32865)  record 0xFDFF  record 0xBDFF  record 0xB7FF  0000      0000
 
-  The leading 16 bits use FUSION_CAPABILITY_BITFIELD, as in 32798. The
-  remaining six bytes of each populated record read 02,00,00,00,00,00 and are
-  zero for the unpopulated slots. Garmin's Fusion Audio app reads each record
-  as one 64-bit flag word and tests bit 17 (the 02) as "has crossover type";
-  the other bits are not established, so they are left as BINARY for now.
+  Each record is one little-endian 64-bit flag word. The low 16 bits use
+  FUSION_CAPABILITY_BITFIELD, as in 32798. The high 48 bits are the Extra field,
+  so bit n of Extra is bit n+16 of the word (FUSION_CAPABILITY_EXTENDED_BITFIELD).
+  The six Extra bytes of each populated record read 02,00,00,00,00,00 and are
+  zero for the unpopulated slots. Bit 17 of the word (the 02) is "has crossover
+  type"; the other bits are not established.
 
   32798 "Capabilities" was separately shown to be static: it is unchanged by
   the "Internal Amps On" setting, verified by requesting a fresh copy with the
@@ -106,12 +112,12 @@ samples:
     industryCode: "Marine Industry"
     messageId: "Zone Capabilities Extended"
     zone1Capabilities: ["Volume", "Volume Limit", "Balance", "Subwoofer", "Low Pass Filter", "High Pass Filter", "EQ Bass", "EQ Mid", "EQ Treble", "DSP", "Internal Amp", "Loudness", "Tweeter", "Subwoofer On Amp", "Mono"]
-    zone1Extra: "0x020000000000"
+    zone1Extra: ["Crossover Type"]
     zone2Capabilities: ["Volume", "Volume Limit", "Balance", "Subwoofer", "Low Pass Filter", "High Pass Filter", "EQ Bass", "EQ Mid", "EQ Treble", "DSP", "Internal Amp", "Loudness", "Tweeter", "Mono"]
-    zone2Extra: "0x020000000000"
+    zone2Extra: ["Crossover Type"]
     zone3Capabilities: ["Volume", "Volume Limit", "Balance", "Subwoofer", "Low Pass Filter", "High Pass Filter", "EQ Bass", "EQ Mid", "EQ Treble", "Line Out", "DSP", "Loudness", "Tweeter", "Mono"]
-    zone3Extra: "0x020000000000"
+    zone3Extra: ["Crossover Type"]
     zone4Capabilities: []
-    zone4Extra: "0x000000000000"
+    zone4Extra: []
     globalCapabilities: []
-    globalExtra: "0x000000000000"
+    globalExtra: []

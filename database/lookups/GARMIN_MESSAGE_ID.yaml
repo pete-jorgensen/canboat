@@ -2,5 +2,16 @@ name: GARMIN_MESSAGE_ID
 kind: pair
 bits: 16
 values:
+  23: GNSS position error and DOP
+  1633: Navigation data
+  1810: Destination waypoint
   1900: AHRS ATT transport
+  2272: Version/identity transport
+  2279: Device-presence transport
+  2557: Sync master advertise
+  2558: Sync message
+  2707: Button-interface transport
+  2711: GLM lighting transport
   5904: Autopilot transport
+  6471: GHC node-status transport
+  6472: GHC self-status transport

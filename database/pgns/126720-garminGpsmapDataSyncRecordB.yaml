@@ -1,0 +1,130 @@
+pgn: 126720
+id: garminGpsmapDataSyncRecordB
+description: 'Garmin: GPSMAP Data-Sync Record B'
+type: Fast
+variantOrder: 88
+priority: 7
+missing:
+- Fields
+- FieldLengths
+- Resolution
+explanation: 'Garmin sub-protocol 1633, sent by GPSMAP chartplotters: the navigation-data record, the field set of PGN 129284 (Navigation Data) with each flag in a whole byte. The resolutions follow PGN 129284 / 129283.'
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Garmin
+  match: 229
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: subProtocolId
+  name: Sub-protocol ID
+  type: LOOKUP
+  bits: 16
+  description: Navigation data
+  match: 1633
+  lookup: GARMIN_MESSAGE_ID
+  primaryKey: true
+- id: wrapperByte1
+  name: Wrapper Byte 1
+  type: UINT8
+  match: 2
+- id: wrapperByte2
+  name: Wrapper Byte 2
+  type: UINT8
+  match: 2
+- id: distanceToWaypoint
+  name: Distance to Waypoint
+  type: LENGTH_UFIX32_CM
+- id: courseBearingReference
+  name: Course/Bearing Reference
+  type: LOOKUP
+  bits: 8
+  lookup: DIRECTION_REFERENCE
+  allowLookupWidthMismatch: true
+- id: perpendicularCrossed
+  name: Perpendicular Crossed
+  type: LOOKUP
+  bits: 8
+  lookup: YES_NO
+  allowLookupWidthMismatch: true
+- id: arrivalCircleEntered
+  name: Arrival Circle Entered
+  type: LOOKUP
+  bits: 8
+  lookup: YES_NO
+  allowLookupWidthMismatch: true
+- id: reserved10
+  name: Reserved
+  type: RESERVED
+  bits: 8
+- id: etaTime
+  name: ETA Time
+  type: TIME
+  bits: 32
+  resolution: 0.0001
+  description: Seconds since midnight
+  rangeMin: 0.0
+  rangeMax: 86401.0
+- id: etaDate
+  name: ETA Date
+  type: DATE
+- id: bearingOriginToDestinationWaypoint
+  name: Bearing, Origin to Destination Waypoint
+  type: ANGLE_UFIX16
+- id: bearingPositionToDestinationWaypoint
+  name: Bearing, Position to Destination Waypoint
+  type: ANGLE_UFIX16
+- id: reserved15
+  name: Reserved
+  type: RESERVED
+  bits: 16
+- id: destinationLatitude
+  name: Destination Latitude
+  type: GEO_LAT_FIX32
+- id: destinationLongitude
+  name: Destination Longitude
+  type: GEO_LON_FIX32
+- id: xte
+  name: XTE
+  type: DISTANCE_FIX32_CM
+- id: earlyTurnTransition
+  name: Early Turn Transition
+  type: UINT8
+- id: reserved19
+  name: Reserved
+  type: RESERVED
+  bits: 8
+- id: waypointClosingVelocity
+  name: Waypoint Closing Velocity
+  type: SPEED_FIX16_CM
+samples:
+- raw: "2023-01-01-00:00:00.000,7,126720,10,255,42,e5,98,61,06,02,02,00,05,2d,00,00,00,00,00,10,66,ab,01,a6,50,04,0c,04,0c,00,00,ff,ff,ff,7f,ff,ff,ff,7f,ee,ff,ff,ff,00,00,20,04"
+  expects:
+    subProtocolId: 1633
+    distanceToWaypoint: 29504.00
+    courseBearingReference: "True"
+    perpendicularCrossed: "No"
+    arrivalCircleEntered: "No"
+    destinationLatitude: ~
+    destinationLongitude: ~
+    xte: -0.18
+    waypointClosingVelocity: 10.56
+- raw: "2023-01-01-00:00:00.000,7,126720,1,255,42,e5,98,61,06,02,02,ff,ff,ff,ff,03,03,00,00,ff,ff,ff,ff,ff,ff,ff,ff,ff,ff,00,00,ff,ff,ff,7f,ff,ff,ff,7f,ff,ff,ff,7f,00,00,ff,7f"
+  expects:
+    subProtocolId: 1633
+    distanceToWaypoint: ~
+    destinationLatitude: ~
+    xte: ~
+    waypointClosingVelocity: ~

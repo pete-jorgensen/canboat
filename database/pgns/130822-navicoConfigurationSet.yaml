@@ -2,7 +2,7 @@ pgn: 130822
 id: navicoConfigurationSet
 description: 'Navico: Configuration Set'
 type: Fast
-variantOrder: 4
+variantOrder: 5
 priority: 3
 missing:
 - Fields

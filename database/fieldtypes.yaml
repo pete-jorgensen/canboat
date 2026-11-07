@@ -123,6 +123,12 @@
   description: 32 bit IEEE-754 floating point angle in radians
   unit: rad
   physical: ANGLE
+- name: FLOAT_RAD_UNSIGNED
+  base: FLOAT
+  description: 32 bit IEEE-754 floating point angle in radians on the full circle, 0 .. 2 pi
+  unit: rad
+  physical: ANGLE
+  signed: false
 - name: FLOAT_PPM
   base: FLOAT
   description: 32 bit IEEE-754 floating point concentration in ppm
@@ -665,6 +671,11 @@
   base: FIX16
   description: Electrical current
   resolution: 0.1
+  physical: ELECTRICAL_CURRENT
+- name: CURRENT_FIX16_CA
+  base: FIX16
+  description: Electrical current
+  resolution: 0.01
   physical: ELECTRICAL_CURRENT
 - name: CURRENT_FIX24_CA
   base: FIX24

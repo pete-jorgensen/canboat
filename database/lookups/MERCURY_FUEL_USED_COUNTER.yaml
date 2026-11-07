@@ -1,0 +1,7 @@
+name: MERCURY_FUEL_USED_COUNTER
+kind: pair
+bits: 8
+values:
+  0: Since Fill
+  1: Trip
+  2: Season

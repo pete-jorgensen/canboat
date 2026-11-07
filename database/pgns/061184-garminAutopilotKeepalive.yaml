@@ -1,0 +1,68 @@
+pgn: 61184
+id: garminAutopilotKeepalive
+description: 'Garmin Autopilot: Keepalive'
+type: Single
+variantOrder: 10
+priority: 7
+missing:
+- Fields
+explanation: |-
+  Single-frame sibling of the Garmin 126720 autopilot transport (sub-protocol 5904), sent by the autopilot
+  computer. It carries no data: Field Group 20 and a Slot that alternates between 1 and 2, about every ten
+  seconds, in standby and engaged alike.
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Garmin
+  match: 229
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: subProtocolId
+  name: Sub-protocol ID
+  type: LOOKUP
+  bits: 16
+  description: Autopilot transport
+  match: 5904
+  lookup: GARMIN_MESSAGE_ID
+  primaryKey: true
+- id: wrapperByte1
+  name: Wrapper Byte 1
+  type: UINT8
+  match: 4
+- id: wrapperByte2
+  name: Wrapper Byte 2
+  type: UINT8
+  match: 4
+- id: fieldGroup
+  name: Field Group
+  type: UINT8
+  match: 20
+- id: slot
+  name: Slot
+  type: UINT8
+  description: Alternates 1, 2
+samples:
+- raw: "2023-01-01-00:00:00.000,7,61184,0,255,8,e5,98,10,17,04,04,14,01"
+  expects:
+    manufacturerCode: "Garmin"
+    subProtocolId: 5904
+    fieldGroup: 20
+    slot: 1
+- raw: "2023-01-01-00:00:00.000,7,61184,0,255,8,e5,98,10,17,04,04,14,02"
+  expects:
+    manufacturerCode: "Garmin"
+    subProtocolId: 5904
+    fieldGroup: 20
+    slot: 2

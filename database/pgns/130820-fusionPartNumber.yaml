@@ -1,0 +1,53 @@
+pgn: 130820
+id: fusionPartNumber
+description: 'Fusion: Part Number'
+type: Fast
+variantOrder: 79
+priority: 7
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Fusion Electronics
+  match: 419
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: messageId
+  name: Message ID
+  type: LOOKUP
+  bits: 16
+  description: Part Number
+  match: 32830
+  lookup: FUSION_STATUS_MESSAGE_ID
+  primaryKey: true
+- id: product
+  name: Product
+  type: STRING_LZ
+- id: softwareVersion
+  name: Software Version
+  type: STRING_LZ
+- id: partNumber
+  name: Part Number
+  type: STRING_LZ
+notes: |-
+  Three length-prefixed strings: the product name, its software version and its part number.
+samples:
+- raw: "2023-01-01-00:00:00.000,7,130820,13,255,26,a3,99,3e,80,08,4d,53,2d,52,41,36,37,30,00,04,36,2e,31,30,00,04,33,32,37,31,00"
+  expects:
+    manufacturerCode: "Fusion Electronics"
+    industryCode: "Marine Industry"
+    messageId: "Part Number"
+    product: "MS-RA670"
+    softwareVersion: "6.10"
+    partNumber: "3271"

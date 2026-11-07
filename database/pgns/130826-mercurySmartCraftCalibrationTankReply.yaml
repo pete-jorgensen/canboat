@@ -1,0 +1,59 @@
+pgn: 130826
+id: mercurySmartCraftCalibrationTankReply
+description: 'Mercury: SmartCraft Calibration, Tank Reply'
+type: Fast
+variantOrder: 4
+priority: 7
+missing:
+- SampleData
+explanation: |-
+  A gateway's answer to a Tank Request: the tank sender before calibration.
+  The data block is one float32. Tried before the general definition.
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Mercury Marine
+  match: 144
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: targetAddress
+  name: Target Address
+  type: UINT8
+  description: 255 = all devices
+- id: operation
+  name: Operation
+  type: LOOKUP
+  bits: 8
+  lookup: MERCURY_CALIBRATION_OPERATION
+  description: Tank Reply
+  match: 5
+  primaryKey: true
+- id: deviceSelector
+  name: Device Selector
+  type: UNSIGNED_INTEGER
+  bits: 2
+  description: Compared with the receiving device's own selector; 0 or 1
+- id: reserved7
+  name: Reserved
+  type: RESERVED
+  bits: 6
+- id: index
+  name: Index
+  type: UINT8
+  description: Slot times 2 plus the tank number 0 .. 1
+- id: value
+  name: Value
+  type: FLOAT
+  description: Uncalibrated tank sender reading

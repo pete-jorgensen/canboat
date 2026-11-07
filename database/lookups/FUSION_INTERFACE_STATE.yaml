@@ -1,0 +1,11 @@
+name: FUSION_INTERFACE_STATE
+kind: pair
+bits: 8
+values:
+  0: Unknown
+  1: Not Present
+  2: Down
+  3: No Carrier
+  4: Dormant
+  5: Up
+  6: Connected

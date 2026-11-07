@@ -1,0 +1,65 @@
+pgn: 130826
+id: mercurySmartCraftCalibration
+description: 'Mercury: SmartCraft Calibration Poll'
+type: Fast
+variantOrder: 7
+priority: 7
+explanation: |-
+  Mercury calibration poll and fuel counter message between a display and a VesselView Link gateway.
+  A request carries no data block. A display sends one about every 250 ms while a calibration dialog is open,
+  and the gateway answers with the next Operation code and the same Index. Tried after the definitions for
+  the replies and for the fuel counter operations.
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Mercury Marine
+  match: 144
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: targetAddress
+  name: Target Address
+  type: UINT8
+  description: 255 = all devices
+- id: operation
+  name: Operation
+  type: LOOKUP
+  bits: 8
+  lookup: MERCURY_CALIBRATION_OPERATION
+- id: deviceSelector
+  name: Device Selector
+  type: UNSIGNED_INTEGER
+  bits: 2
+  description: Compared with the receiving device's own selector; 0 or 1
+- id: reserved7
+  name: Reserved
+  type: RESERVED
+  bits: 6
+- id: index
+  name: Index
+  type: UINT8
+- id: data
+  name: Data
+  type: BINARY
+  bits: 256
+notes: Uwe Lovas has seen this from EP-70R
+samples:
+- raw: "2023-01-01-00:00:00.000,7,130826,8,255,8,a0,06,90,98,ff,00,00,01"
+  expects:
+    manufacturerCode: "Mercury Marine"
+    industryCode: "Marine Industry"
+    targetAddress: ~
+    operation: Trim Request
+    deviceSelector: 0
+    index: 1

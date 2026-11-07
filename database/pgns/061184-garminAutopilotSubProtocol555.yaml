@@ -1,0 +1,66 @@
+pgn: 61184
+id: garminAutopilotSubProtocol555
+description: 'Garmin Autopilot: Sub-protocol 555'
+type: Single
+variantOrder: 11
+priority: 7
+missing:
+- Fields
+- Resolution
+explanation: |-
+  Single-frame Garmin sub-protocol 555, sent by the autopilot computer: one byte that moves by one step at
+  a time within a narrow band (0x11 .. 0x20 observed), with a baseline that differs between sessions - a
+  slow internal analog reading whose quantity is not identified.
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Garmin
+  match: 229
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: subProtocolId
+  name: Sub-protocol ID
+  type: LOOKUP
+  bits: 16
+  match: 555
+  lookup: GARMIN_MESSAGE_ID
+  primaryKey: true
+- id: wrapperByte1
+  name: Wrapper Byte 1
+  type: UINT8
+  match: 1
+- id: wrapperByte2
+  name: Wrapper Byte 2
+  type: UINT8
+  match: 0
+- id: value
+  name: Value
+  type: UINT8
+- id: reserved8
+  name: Reserved
+  type: RESERVED
+  bits: 8
+  description: Not sent; the frame is 7 bytes
+samples:
+- raw: "2023-01-01-00:00:00.000,7,61184,0,255,7,e5,98,2b,02,01,00,1c"
+  expects:
+    manufacturerCode: "Garmin"
+    subProtocolId: 555
+    value: 28
+- raw: "2023-01-01-00:00:00.000,7,61184,0,255,7,e5,98,2b,02,01,00,15"
+  expects:
+    manufacturerCode: "Garmin"
+    subProtocolId: 555
+    value: 21

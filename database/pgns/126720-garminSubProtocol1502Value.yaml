@@ -1,0 +1,69 @@
+pgn: 126720
+id: garminSubProtocol1502Value
+description: 'Garmin: Sub-protocol 1502 Value'
+type: Fast
+variantOrder: 118
+priority: 7
+missing:
+- Fields
+- Resolution
+explanation: |-
+  Garmin sub-protocol 1502, sent by Garmin displays and the autopilot head unit: an id (6 or 12 seen, in
+  equal numbers) and one float32 value. Every value seen lies between 0 and 1; id 12 is never 0, id 6 often
+  is. What the values are is not identified.
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Garmin
+  match: 229
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: subProtocolId
+  name: Sub-protocol ID
+  type: LOOKUP
+  bits: 16
+  match: 1502
+  lookup: GARMIN_MESSAGE_ID
+  primaryKey: true
+- id: wrapperByte1
+  name: Wrapper Byte 1
+  type: UINT8
+  match: 5
+- id: wrapperByte2
+  name: Wrapper Byte 2
+  type: UINT8
+  match: 5
+- id: reserved6
+  name: Reserved
+  type: RESERVED
+  bits: 16
+- id: valueId
+  name: Value Id
+  type: UINT16
+  primaryKey: true
+- id: value
+  name: Value
+  type: FLOAT
+samples:
+- raw: "2023-01-01-00:00:00.000,7,126720,10,255,14,e5,98,de,05,05,05,00,00,0c,00,ed,db,df,3e"
+  expects:
+    subProtocolId: 1502
+    valueId: 12
+    value: 0.4372
+- raw: "2023-01-01-00:00:00.000,7,126720,11,255,14,e5,98,de,05,05,05,00,00,06,00,00,00,00,00"
+  expects:
+    subProtocolId: 1502
+    valueId: 6
+    value: 0.0000

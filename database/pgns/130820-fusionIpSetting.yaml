@@ -1,0 +1,107 @@
+pgn: 130820
+id: fusionIpSetting
+description: 'Fusion: IP Setting'
+type: Fast
+variantOrder: 78
+priority: 7
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Fusion Electronics
+  match: 419
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: messageId
+  name: Message ID
+  type: LOOKUP
+  bits: 16
+  description: IP Setting
+  match: 32819
+  lookup: FUSION_STATUS_MESSAGE_ID
+  primaryKey: true
+- id: ipMode
+  name: IP Mode
+  type: LOOKUP
+  bits: 8
+  lookup: FUSION_IP_MODE
+- id: ipAddress1
+  name: IP Address 1
+  type: UINT8
+  specialValues: 0
+- id: ipAddress2
+  name: IP Address 2
+  type: UINT8
+  specialValues: 0
+- id: ipAddress3
+  name: IP Address 3
+  type: UINT8
+  specialValues: 0
+- id: ipAddress4
+  name: IP Address 4
+  type: UINT8
+  specialValues: 0
+- id: netmask1
+  name: Netmask 1
+  type: UINT8
+  specialValues: 0
+- id: netmask2
+  name: Netmask 2
+  type: UINT8
+  specialValues: 0
+- id: netmask3
+  name: Netmask 3
+  type: UINT8
+  specialValues: 0
+- id: netmask4
+  name: Netmask 4
+  type: UINT8
+  specialValues: 0
+- id: gateway1
+  name: Gateway 1
+  type: UINT8
+  specialValues: 0
+- id: gateway2
+  name: Gateway 2
+  type: UINT8
+  specialValues: 0
+- id: gateway3
+  name: Gateway 3
+  type: UINT8
+  specialValues: 0
+- id: gateway4
+  name: Gateway 4
+  type: UINT8
+  specialValues: 0
+notes: |-
+  Addresses are IPv4 in network byte order, one field per octet: every octet value is an address byte, so none is reserved.
+samples:
+- raw: "2023-01-01-00:00:00.000,7,130820,13,255,17,a3,99,33,80,00,c0,00,02,01,ff,ff,ff,00,c0,00,02,01"
+  expects:
+    manufacturerCode: "Fusion Electronics"
+    industryCode: "Marine Industry"
+    messageId: "IP Setting"
+    ipMode: "DHCP"
+    ipAddress1: 192
+    ipAddress2: 0
+    ipAddress3: 2
+    ipAddress4: 1
+    netmask1: 255
+    netmask2: 255
+    netmask3: 255
+    netmask4: 0
+    gateway1: 192
+    gateway2: 0
+    gateway3: 2
+    gateway4: 1

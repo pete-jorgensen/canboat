@@ -87,18 +87,26 @@ BO_ 2565800190 PGN_61184_multiplexed: 8 Vector__XXX
  SG_ m3_spare12 m3 : 60|4@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m3_keypadMode m3 : 59|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m3_spare10 m3 : 57|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ m555_reserved8_1 m555 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ m5904_slot m5904 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m3_button m3 : 56|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m2_key5 m2 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39088_dimValue m39088 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ m555_value_1 m555 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ m5904_fieldGroup m5904 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m3_a m3 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m2_key4 m2 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39088_breakerCommand m39088 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m40763_reserved8 m40763 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39088_breakerMapping3 m39088 : 45|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ m555_wrapperByte2_1 m555 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ m5904_wrapperByte2 m5904 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m3_wheel m3 : 40|8@1- (1,0) [0|0] "" Vector__XXX
  SG_ m2_key3 m2 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39088_reserved7 m39088 : 40|5@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m40763_wiredSetting m40763 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ m555_wrapperByte1_1 m555 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ m5904_wrapperByte1 m5904 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m3_dy m3 : 32|8@1- (1,0) [0|0] "" Vector__XXX
  SG_ m2_key2 m2 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m0_reserved6 m0 : 32|32@1+ (1,0) [0|0] "" Vector__XXX
@@ -112,6 +120,7 @@ BO_ 2565800190 PGN_61184_multiplexed: 8 Vector__XXX
  SG_ m0_command_1 m0 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39088_breakerMapping1 m39088 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m40763_variant m40763 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ m39141_subProtocolId M : 16|16@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m40767_proprietaryId_1 M : 16|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m40769_command m40769 : 16|14@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39088_messageType m39088 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -285,19 +294,22 @@ BO_ 2566848766 PGN_65280_multiplexed: 8 Vector__XXX
  SG_ m39207_unknownE m39207 : 59|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39207_unknownD m39207 : 57|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39207_unknownC m39207 : 56|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ m39187_reserved8 m39187 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39084_unknownData m39084 : 56|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39207_unknownB m39207 : 54|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39207_commandActive m39207 : 53|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39207_unknownA m39207 : 52|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39207_levelOrValue m39207 : 48|4@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m40767_reserved5 m40767 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ m39187_configCode m39187 : 40|16@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39084_engineSpeed m39084 : 40|16@1+ (1,0) [0|0] "rpm" Vector__XXX
  SG_ m39084_transmissionGear m39084 : 38|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39218_reserved10 m39218 : 34|30@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39084_spare m39084 : 34|4@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39207_fieldB m39207 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ m39187_reserved6 m39187 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39218_thrust m39218 : 24|10@1+ (0.1,0) [0|0] "%" Vector__XXX
- SG_ m39187_data_3 m39187 : 24|40@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ m39187_runState m39187 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39084_throttlePosition m39084 : 24|10@1+ (0.1,0) [0|0] "%" Vector__XXX
  SG_ m39218_deviceAction m39218 : 22|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ m39084_engineInstance m39084 : 21|3@1+ (1,0) [0|0] "" Vector__XXX
@@ -2172,8 +2184,11 @@ CM_ SG_ 2565734654 deviceInstanceUpper "ISO Function Instance";
 CM_ SG_ 2565734654 deviceInstanceLower "ISO ECU Instance";
 CM_ SG_ 2565734654 uniqueNumber "ISO Identity Number";
 CM_ BO_ 2565800190 "Multiplexed message";
+CM_ SG_ 2565800190 m555_reserved8_1 "Not sent; the frame is 7 bytes";
+CM_ SG_ 2565800190 m5904_slot "Alternates 1, 2";
 CM_ SG_ 2565800190 m40769_value "Only meaningful in a reply (carries a status); left unset (0xFF) in a request";
 CM_ SG_ 2565800190 m40769_reply "0 = request, 1 = reply";
+CM_ SG_ 2565800190 m39141_subProtocolId "Autopilot transport";
 CM_ SG_ 2565800190 m40767_proprietaryId_1 "Command";
 CM_ SG_ 2565800190 m40769_command "Command selector; 49 keeps the addressed device awake";
 CM_ SG_ 2565800190 m39088_messageType "Breaker Command";
@@ -2212,12 +2227,13 @@ CM_ BO_ 2566848766 "Multiplexed message";
 CM_ SG_ 2566848766 m39084_unknownData "Observed as 0x64.";
 CM_ SG_ 2566848766 m39207_commandActive "Receiver ignores frame if zero";
 CM_ SG_ 2566848766 m39207_levelOrValue "0x1 for ON, 0x2 for OFF; possibly a control mode";
+CM_ SG_ 2566848766 m39187_configCode "Constant per sending device";
 CM_ SG_ 2566848766 m39084_engineSpeed "Observed whole engine RPM; agrees with PGN 127488 after applying that PGN's 0.25 RPM resolution.";
 CM_ SG_ 2566848766 m39084_transmissionGear "Observed as Forward, Neutral, and Reverse, matching PGN 127493 for the corresponding engine instance.";
 CM_ SG_ 2566848766 m39218_reserved10 "Zero in every observed frame, including at full deflection";
 CM_ SG_ 2566848766 m39207_fieldB "Purpose unknown; observed 0x0000 in all known traffic";
 CM_ SG_ 2566848766 m39218_thrust "Commanded thrust, 0 to 100%";
-CM_ SG_ 2566848766 m39187_data_3 "Payload; constant in all observed traffic";
+CM_ SG_ 2566848766 m39187_runState "Power state of the sender: 0 while off, 4 for under a second at power-up, 5 while powered, 6 briefly at power-down (observed sequences 0, 4, 5 and 5, 6, 0). Constant at 5 in steady traffic.";
 CM_ SG_ 2566848766 m39084_throttlePosition "Observed control-lever position with 0.1 percent resolution.";
 CM_ SG_ 2566848766 m39084_engineInstance "Uses the standard NMEA 2000 engine-instance values; observed as 0 for port and 1 for starboard.";
 CM_ SG_ 2566848766 m39218_thrusterInstance "Selects the thruster (pair) the command applies to";
@@ -2850,8 +2866,9 @@ VAL_ 2565734654 deviceClass 0 "Reserved for 2000 Use" 10 "System tools" 20 "Safe
 VAL_ 2565734654 manufacturerCode 69 "ARKS Enterprises" 78 "FW Murphy/Enovation Controls" 80 "Twin Disc" 85 "Kohler Power Systems" 88 "Hemisphere GPS" 135 "Airmar" 137 "Maretron" 140 "Lowrance" 144 "Mercury Marine" 147 "Nautibus Electronic" 148 "Blue Water Data" 154 "Westerbeke" 157 "ISSPRO" 161 "Offshore Systems (UK)" 163 "Evinrude/BRP" 165 "CPAC Systems" 168 "Xantrex Technology" 169 "Marlin Technologies" 172 "Yanmar Marine" 174 "Volvo Penta" 176 "Carling Technologies Inc. (Moritz Aerospace)" 185 "Beede Instruments" 192 "Floscan Instrument" 193 "Nobeltec" 198 "Mystic Valley Communications" 199 "Actia" 201 "Disenos Y Technologia" 211 "Digital Switching Systems" 215 "Xintex/Atena" 224 "EMMI NETWORK" 228 "ZF" 229 "Garmin" 233 "Yacht Monitoring Solutions" 235 "Sailormade Marine Telemetry/Tetra Technology" 243 "Eride" 257 "Honda Motor" 272 "Groco" 273 "Actisense" 274 "Amphenol LTW Technology" 275 "Navico" 283 "Hamilton Jet" 285 "Sea Recovery" 286 "Coelmo SRL Italy" 295 "BEP Marine" 304 "Empir Bus" 305 "NovAtel" 306 "Sleipner Motor" 307 "MBW Technologies" 315 "ICOM" 328 "Qwerty" 329 "Dief" 341 "Boening Automationstechnologie" 345 "Korean Maritime University" 351 "Thrane and Thrane" 355 "Mastervolt" 356 "Fischer Panda Generators" 358 "Victron Energy" 370 "Rolls Royce Marine" 373 "Electronic Design" 374 "Northern Lights" 378 "Glendinning" 381 "B & G" 384 "Rose Point Navigation Systems" 385 "Johnson Outdoors Marine Electronics Inc Geonav" 394 "Capi 2" 396 "Beyond Measure" 400 "Livorsi Marine" 404 "ComNav" 409 "Chetco" 419 "Fusion Electronics" 421 "Standard Horizon" 422 "True Heading" 426 "Egersund Marine Electronics" 427 "em-trak Marine Electronics" 431 "Tohatsu Co, JP" 437 "Digital Yacht" 438 "Comar Systems Limited" 440 "Cummins" 443 "VDO (aka Continental-Corporation)" 451 "Parker Hannifin aka Village Marine Tech" 459 "Alltek Marine Electronics" 460 "SAN GIORGIO S.E.I.N" 466 "Veethree Electronics & Marine" 470 "SI-TEX Marine Electronics" 471 "Sea Cross Marine" 475 "GME aka Standard Communications" 476 "Humminbird Marine Electronics" 478 "Ocean Sat" 481 "Chetco Digital Instruments" 493 "Watcheye" 499 "Lcj Capteurs" 502 "Attwood Marine" 503 "Naviop S.R.L." 504 "Vesper Marine" 510 "Marinesoft" 513 "Simarine" 517 "NoLand Engineering" 518 "Transas USA" 529 "National Instruments Korea" 530 "National Marine Electronics Association" 532 "Onwa Marine" 540 "Webasto" 571 "Marinecraft (South Korea)" 573 "McMurdo Group aka Orolia" 578 "Advansea" 579 "KVH" 580 "San Jose Technology" 583 "Yacht Control" 586 "Suzuki Motor" 591 "US Coast Guard" 595 "Ship Module aka Customware" 600 "Aquatic AV" 605 "Aventics" 606 "Intellian" 612 "SamwonIT" 614 "Arlt Tecnologies" 637 "Bavaria Yachts" 641 "Diverse Yacht Services" 644 "Wema U.S.A dba KUS" 658 "Shenzhen Jiuzhou Himunication" 688 "Rockford" 699 "Harman International" 704 "JL Audio" 708 "Lars Thrane" 715 "Autonnic" 717 "Yacht Devices" 734 "REAP Systems" 735 "AEM Performance Electronics" 739 "LxNav" 741 "Littelfuse, Inc (formerly Carling Technologies)" 743 "DaeMyung" 744 "Woosung" 748 "ISOTTA IFRA srl" 773 "Clarion US" 776 "HMI Systems" 777 "Ocean Signal" 778 "Seakeeper" 781 "Poly Planar" 785 "Fischer Panda DE" 795 "Broyda Industries" 796 "Canadian Automotive" 797 "Tides Marine" 798 "Lumishore" 799 "Still Water Designs and Audio" 802 "BJ Technologies (Beneteau)" 803 "Gill Sensors" 811 "Blue Water Desalination" 815 "FLIR" 824 "Undheim Systems" 826 "Lewmar" 838 "TeamSurv" 844 "Fell Marine" 847 "Oceanvolt" 862 "Prospec" 868 "Data Panel" 890 "L3 Technologies" 894 "Rhodan Marine Systems" 896 "Nexfour Solutions" 905 "ASA Electronics" 909 "Marines Co (South Korea)" 911 "Nautic-on" 917 "Sentinel" 929 "JL Marine Systems" 930 "Ecotronix" 944 "Zontisa Marine" 951 "EXOR International" 962 "Timbolier Industries" 963 "TJC Micro" 968 "Cox Powertrain" 969 "Blue Seas" 981 "Kobelt Manufacturing" 992 "Blue Ocean IOT" 997 "Xenta Systems" 999 "Signal K" 1004 "Ultraflex" 1008 "Lintest SmartBoat" 1011 "Soundmax" 1020 "Team Italia Marine (Onyx Marine Automation s.r.l)" 1021 "Entratech" 1022 "ITC" 1029 "The Marine Guardian" 1047 "Sonic" 1051 "ProNav" 1053 "Vetus Maxwell INC." 1056 "Lithium Pros" 1059 "Boatrax" 1062 "Marol Co ltd" 1065 "CALYPSO Instruments" 1066 "Spot Zero Water" 1069 "Lithionics Battery" 1070 "Quick-teck Electronics" 1075 "Uniden America" 1083 "Nauticoncept" 1084 "Shadow-Caster LED lighting" 1085 "Wet Sounds" 1088 "E-T-A Circuit Breakers" 1092 "Scheiber" 1100 "Smart Yachts International Limited" 1109 "Dockmate" 1114 "Bobs Machine" 1118 "L3Harris ASV" 1119 "Balmar" 1120 "Elettromedia" 1127 "Electromaax" 1140 "Across Oceans Systems" 1145 "Kiwi Yachting" 1150 "BSB Artificial Intelligence" 1151 "Orca Technologies" 1154 "TBS Electronics" 1158 "Technoton Electroics" 1160 "MG Energy Systems" 1169 "Sea Machine Robotics" 1171 "Vista Manufacturing" 1183 "Zipwake" 1186 "Sailmon" 1192 "Airmoniq Pro Kft" 1194 "Sierra Marine" 1200 "Xinuo Information Technology (Xiamen)" 1218 "Septentrio" 1233 "NKE Marine Electronics" 1238 "SuperTrack Aps" 1239 "Honda Electronics" 1245 "Raritan Engineering" 1249 "Integrated Power Solutions AG" 1260 "Interactive Technologies" 1283 "LTG-Tech" 1299 "Energy Solutions (UK)" 1300 "WATT Fuel Cell" 1302 "Pro Mainer" 1305 "Dragonfly Energy" 1306 "Koden Electronics" 1311 "Humphree" 1316 "Hinkley Yachts" 1317 "Global Marine Management GmbH (GMM)" 1320 "Triskel Marine" 1330 "Warwick Control Technologies" 1331 "Dolphin Charger" 1337 "Barnacle Systems" 1348 "Radian IoT" 1353 "Ocean LED Marine" 1359 "BluNav" 1361 "OVA (Nantong Saiyang Electronics Co., Ltd)" 1368 "RAD Propulsion" 1369 "Electric Yacht" 1372 "Elco Motor Yachts" 1384 "Tecnoseal Foundry S.r.l" 1385 "Pro Charging Systems" 1389 "EVEX" 1398 "Gobius Sensor Technology" 1403 "Arco Marine" 1408 "Lenco Marine" 1413 "Naocontrol" 1417 "Revatek" 1438 "Aeolionics" 1439 "PredictWind" 1440 "Egis Mobile Electric" 1445 "Starboard Yacht Group" 1446 "Roswell Marine" 1451 "ePropulsion (Guangdong ePropulsion Technology Ltd.)" 1452 "Micro-Air" 1453 "Vital Battery" 1458 "Ride Controller" 1460 "Tocaro Blue" 1461 "Vanquish Yachts" 1471 "FT Technologies" 1478 "Alps Alpine" 1481 "E-Force Marine" 1482 "CMC Marine" 1483 "Nanjing Sandemarine Information Technology" 1850 "Teleflex Marine (SeaStar Solutions)" 1851 "Raymarine" 1852 "Navionics" 1853 "Japan Radio" 1854 "Northstar Technologies" 1855 "Furuno" 1856 "Trimble" 1857 "Simrad" 1858 "Litton" 1859 "Kvasar" 1860 "MMP" 1861 "Vector Cantech" 1862 "Yamaha Marine" 1863 "Faria Instruments" ;
 VAL_ 2565800190 m3_keypadMode 0 "No" 1 "Yes" ;
 VAL_ 2565800190 m3_button 0 "No" 1 "Yes" ;
+VAL_ 2565800190 m39141_subProtocolId 5904 "garminAutopilotKeepalive" 555 "garminAutopilotSubProtocol555" ;
 VAL_ 2565800190 m40767_proprietaryId_1 0 "furunoCommand" 2 "furunoRemoteKeyboardReport" 3 "furunoRemotePointerReport" ;
-VAL_ 2565800190 manufacturerIndustry 40763 "Raymarine" 39270 "Victron Energy" 39088 "Carling Technologies Inc. (Moritz Aerospace)" 40769 "Simrad" 40767 "Furuno" ;
+VAL_ 2565800190 manufacturerIndustry 40763 "Raymarine" 39270 "Victron Energy" 39088 "Carling Technologies Inc. (Moritz Aerospace)" 40769 "Simrad" 40767 "Furuno" 39141 "Garmin" ;
 VAL_ 2566778622 powerFactorLagging 0 "Leading" 1 "Lagging" 2 "Error" ;
 VAL_ 2566779390 powerFactorLagging 0 "Leading" 1 "Lagging" 2 "Error" ;
 VAL_ 2566780158 powerFactorLagging 0 "Leading" 1 "Lagging" 2 "Error" ;
@@ -3155,6 +3172,7 @@ SG_MUL_VAL_ 2565800190 m39270_registerId manufacturerIndustry 39270-39270;
 SG_MUL_VAL_ 2565800190 m39088_messageType manufacturerIndustry 39088-39088;
 SG_MUL_VAL_ 2565800190 m40769_command manufacturerIndustry 40769-40769;
 SG_MUL_VAL_ 2565800190 m40767_proprietaryId_1 manufacturerIndustry 40767-40767;
+SG_MUL_VAL_ 2565800190 m39141_subProtocolId manufacturerIndustry 39141-39141;
 SG_MUL_VAL_ 2565800190 m40763_variant manufacturerIndustry 40763-40763;
 SG_MUL_VAL_ 2565800190 m39088_breakerMapping1 manufacturerIndustry 39088-39088;
 SG_MUL_VAL_ 2565800190 m0_command_1 m40767_proprietaryId_1 0-0;
@@ -3168,18 +3186,26 @@ SG_MUL_VAL_ 2565800190 m40769_value manufacturerIndustry 40769-40769;
 SG_MUL_VAL_ 2565800190 m0_reserved6 m40767_proprietaryId_1 0-0;
 SG_MUL_VAL_ 2565800190 m2_key2 m40767_proprietaryId_1 2-2;
 SG_MUL_VAL_ 2565800190 m3_dy m40767_proprietaryId_1 3-3;
+SG_MUL_VAL_ 2565800190 m5904_wrapperByte1 m39141_subProtocolId 5904-5904;
+SG_MUL_VAL_ 2565800190 m555_wrapperByte1_1 m39141_subProtocolId 555-555;
 SG_MUL_VAL_ 2565800190 m40763_wiredSetting manufacturerIndustry 40763-40763;
 SG_MUL_VAL_ 2565800190 m39088_reserved7 manufacturerIndustry 39088-39088;
 SG_MUL_VAL_ 2565800190 m2_key3 m40767_proprietaryId_1 2-2;
 SG_MUL_VAL_ 2565800190 m3_wheel m40767_proprietaryId_1 3-3;
+SG_MUL_VAL_ 2565800190 m5904_wrapperByte2 m39141_subProtocolId 5904-5904;
+SG_MUL_VAL_ 2565800190 m555_wrapperByte2_1 m39141_subProtocolId 555-555;
 SG_MUL_VAL_ 2565800190 m39088_breakerMapping3 manufacturerIndustry 39088-39088;
 SG_MUL_VAL_ 2565800190 m40763_reserved8 manufacturerIndustry 40763-40763;
 SG_MUL_VAL_ 2565800190 m39088_breakerCommand manufacturerIndustry 39088-39088;
 SG_MUL_VAL_ 2565800190 m2_key4 m40767_proprietaryId_1 2-2;
 SG_MUL_VAL_ 2565800190 m3_a m40767_proprietaryId_1 3-3;
+SG_MUL_VAL_ 2565800190 m5904_fieldGroup m39141_subProtocolId 5904-5904;
+SG_MUL_VAL_ 2565800190 m555_value_1 m39141_subProtocolId 555-555;
 SG_MUL_VAL_ 2565800190 m39088_dimValue manufacturerIndustry 39088-39088;
 SG_MUL_VAL_ 2565800190 m2_key5 m40767_proprietaryId_1 2-2;
 SG_MUL_VAL_ 2565800190 m3_button m40767_proprietaryId_1 3-3;
+SG_MUL_VAL_ 2565800190 m5904_slot m39141_subProtocolId 5904-5904;
+SG_MUL_VAL_ 2565800190 m555_reserved8_1 m39141_subProtocolId 555-555;
 SG_MUL_VAL_ 2565800190 m3_spare10 m40767_proprietaryId_1 3-3;
 SG_MUL_VAL_ 2565800190 m3_keypadMode m40767_proprietaryId_1 3-3;
 SG_MUL_VAL_ 2565800190 m3_spare12 m40767_proprietaryId_1 3-3;
@@ -3195,19 +3221,22 @@ SG_MUL_VAL_ 2566848766 m39218_direction manufacturerIndustry 39218-39218;
 SG_MUL_VAL_ 2566848766 m39084_engineInstance manufacturerIndustry 39084-39084;
 SG_MUL_VAL_ 2566848766 m39218_deviceAction manufacturerIndustry 39218-39218;
 SG_MUL_VAL_ 2566848766 m39084_throttlePosition manufacturerIndustry 39084-39084;
-SG_MUL_VAL_ 2566848766 m39187_data_3 manufacturerIndustry 39187-39187;
+SG_MUL_VAL_ 2566848766 m39187_runState manufacturerIndustry 39187-39187;
 SG_MUL_VAL_ 2566848766 m39218_thrust manufacturerIndustry 39218-39218;
+SG_MUL_VAL_ 2566848766 m39187_reserved6 manufacturerIndustry 39187-39187;
 SG_MUL_VAL_ 2566848766 m39207_fieldB manufacturerIndustry 39207-39207;
 SG_MUL_VAL_ 2566848766 m39084_spare manufacturerIndustry 39084-39084;
 SG_MUL_VAL_ 2566848766 m39218_reserved10 manufacturerIndustry 39218-39218;
 SG_MUL_VAL_ 2566848766 m39084_transmissionGear manufacturerIndustry 39084-39084;
 SG_MUL_VAL_ 2566848766 m39084_engineSpeed manufacturerIndustry 39084-39084;
+SG_MUL_VAL_ 2566848766 m39187_configCode manufacturerIndustry 39187-39187;
 SG_MUL_VAL_ 2566848766 m40767_reserved5 manufacturerIndustry 40767-40767;
 SG_MUL_VAL_ 2566848766 m39207_levelOrValue manufacturerIndustry 39207-39207;
 SG_MUL_VAL_ 2566848766 m39207_unknownA manufacturerIndustry 39207-39207;
 SG_MUL_VAL_ 2566848766 m39207_commandActive manufacturerIndustry 39207-39207;
 SG_MUL_VAL_ 2566848766 m39207_unknownB manufacturerIndustry 39207-39207;
 SG_MUL_VAL_ 2566848766 m39084_unknownData manufacturerIndustry 39084-39084;
+SG_MUL_VAL_ 2566848766 m39187_reserved8 manufacturerIndustry 39187-39187;
 SG_MUL_VAL_ 2566848766 m39207_unknownC manufacturerIndustry 39207-39207;
 SG_MUL_VAL_ 2566848766 m39207_unknownD manufacturerIndustry 39207-39207;
 SG_MUL_VAL_ 2566848766 m39207_unknownE manufacturerIndustry 39207-39207;

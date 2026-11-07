@@ -1,0 +1,78 @@
+pgn: 130826
+id: mercurySmartCraftFuelUsedSubtract
+description: 'Mercury: SmartCraft Fuel Used Subtract'
+type: Fast
+variantOrder: 6
+priority: 7
+explanation: |-
+  Subtracts an amount from one fuel used counter of one engine; a negative amount adds to it, and the counter
+  does not go below 0. A display sends it for each engine when fuel is added on its fuel management page.
+  The counters are the Fuel Used keys of PGN 130824. Tried before the general definition.
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Mercury Marine
+  match: 144
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: targetAddress
+  name: Target Address
+  type: UINT8
+  description: 255 = all devices
+- id: operation
+  name: Operation
+  type: LOOKUP
+  bits: 8
+  lookup: MERCURY_CALIBRATION_OPERATION
+  description: Subtract Fuel Used
+  match: 7
+  primaryKey: true
+- id: deviceSelector
+  name: Device Selector
+  type: UNSIGNED_INTEGER
+  bits: 2
+  description: Compared with the receiving device's own selector; 0 or 1
+- id: reserved7
+  name: Reserved
+  type: RESERVED
+  bits: 6
+- id: engineInstance
+  name: Engine Instance
+  type: UINT8
+- id: counter
+  name: Counter
+  type: LOOKUP
+  bits: 8
+  lookup: MERCURY_FUEL_USED_COUNTER
+- id: amount
+  name: Amount
+  type: FLOAT
+  unit: gal
+  description: US gallons to subtract; negative adds
+samples:
+- raw: "2023-01-01-00:00:00.000,7,130826,8,255,11,90,98,ff,07,00,00,00,5c,f2,05,42"
+  expects:
+    manufacturerCode: "Mercury Marine"
+    operation: Subtract Fuel Used
+    engineInstance: 0
+    counter: Since Fill
+    amount: 33.4867
+- raw: "2023-01-01-00:00:00.000,7,130826,8,255,11,90,98,ff,07,00,01,00,aa,0d,62,c2"
+  expects:
+    manufacturerCode: "Mercury Marine"
+    operation: Subtract Fuel Used
+    engineInstance: 1
+    counter: Since Fill
+    amount: -56.5133

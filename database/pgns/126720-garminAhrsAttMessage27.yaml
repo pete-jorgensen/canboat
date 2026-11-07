@@ -1,0 +1,62 @@
+pgn: 126720
+id: garminAhrsAttMessage27
+description: 'Garmin AHRS ATT: Message 27'
+type: Fast
+variantOrder: 116
+priority: 7
+missing:
+- Fields
+- Resolution
+explanation: |-
+  One byte, constant in every frame observed (0x56).
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Garmin
+  match: 229
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: subProtocolId
+  name: Sub-protocol ID
+  type: LOOKUP
+  bits: 16
+  description: AHRS ATT transport
+  match: 1900
+  lookup: GARMIN_MESSAGE_ID
+  primaryKey: true
+- id: wrapperByte1
+  name: Wrapper Byte 1
+  type: UINT8
+  match: 2
+- id: wrapperByte2
+  name: Wrapper Byte 2
+  type: UINT8
+  match: 2
+- id: attMessageId
+  name: ATT Message ID
+  type: LOOKUP
+  bits: 16
+  match: 27
+  lookup: GARMIN_ATT_MESSAGE_ID
+  primaryKey: true
+- id: value
+  name: Value
+  type: UINT8
+samples:
+- raw: "2023-01-01-00:00:00.000,7,126720,0,255,9,e5,98,6c,07,02,02,1b,00,56"
+  expects:
+    subProtocolId: 1900
+    attMessageId: 27
+    value: 86

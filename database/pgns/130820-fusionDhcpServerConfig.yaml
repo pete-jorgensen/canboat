@@ -1,0 +1,100 @@
+pgn: 130820
+id: fusionDhcpServerConfig
+description: 'Fusion: DHCP Server Config'
+type: Fast
+variantOrder: 74
+priority: 7
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Fusion Electronics
+  match: 419
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: messageId
+  name: Message ID
+  type: LOOKUP
+  bits: 16
+  description: DHCP Server Config
+  match: 16398
+  lookup: FUSION_STATUS_MESSAGE_ID
+  primaryKey: true
+- id: configResponse
+  name: Configuration Response
+  type: LOOKUP
+  bits: 8
+  lookup: FUSION_CONFIG_RESPONSE
+- id: enabled
+  name: Enabled
+  type: LOOKUP
+  bits: 8
+  lookup: YES_NO
+  allowLookupWidthMismatch: true
+- id: startAddress1
+  name: Start Address 1
+  type: UINT8
+  specialValues: 0
+- id: startAddress2
+  name: Start Address 2
+  type: UINT8
+  specialValues: 0
+- id: startAddress3
+  name: Start Address 3
+  type: UINT8
+  specialValues: 0
+- id: startAddress4
+  name: Start Address 4
+  type: UINT8
+  specialValues: 0
+- id: endAddress1
+  name: End Address 1
+  type: UINT8
+  specialValues: 0
+- id: endAddress2
+  name: End Address 2
+  type: UINT8
+  specialValues: 0
+- id: endAddress3
+  name: End Address 3
+  type: UINT8
+  specialValues: 0
+- id: endAddress4
+  name: End Address 4
+  type: UINT8
+  specialValues: 0
+- id: interface
+  name: Interface
+  type: LOOKUP
+  bits: 8
+  lookup: FUSION_NETWORK_INTERFACE
+notes: |-
+  The start and end of the address range of the head unit's DHCP server. Addresses are IPv4 in network byte order, one field per octet: every octet value is an address byte, so none is reserved.
+samples:
+- raw: "2023-01-01-00:00:00.000,7,130820,13,255,15,a3,99,0e,40,00,00,c0,00,02,14,c0,00,02,fe,01"
+  expects:
+    manufacturerCode: "Fusion Electronics"
+    industryCode: "Marine Industry"
+    messageId: "DHCP Server Config"
+    configResponse: "Get Configuration"
+    enabled: "No"
+    startAddress1: 192
+    startAddress2: 0
+    startAddress3: 2
+    startAddress4: 20
+    endAddress1: 192
+    endAddress2: 0
+    endAddress3: 2
+    endAddress4: 254
+    interface: "Wired"

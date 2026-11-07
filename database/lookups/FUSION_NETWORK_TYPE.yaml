@@ -1,0 +1,9 @@
+name: FUSION_NETWORK_TYPE
+kind: pair
+bits: 8
+values:
+  0: Unknown
+  1: Wired Only
+  2: Wi-Fi Only
+  3: Hybrid
+  4: Bridged

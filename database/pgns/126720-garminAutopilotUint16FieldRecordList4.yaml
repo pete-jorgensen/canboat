@@ -1,0 +1,147 @@
+pgn: 126720
+id: garminAutopilotUint16FieldRecordList4
+description: 'Garmin Autopilot: Uint16 Field Record List4'
+type: Fast
+variantOrder: 113
+priority: 7
+missing:
+- Fields
+- Resolution
+fields:
+- id: manufacturerCode
+  name: Manufacturer Code
+  type: LOOKUP
+  bits: 11
+  description: Garmin
+  match: 229
+  lookup: MANUFACTURER_CODE
+- id: reserved
+  name: Reserved
+  type: RESERVED
+  bits: 2
+- id: industryCode
+  name: Industry Code
+  type: LOOKUP
+  bits: 3
+  description: Marine Industry
+  match: 4
+  lookup: INDUSTRY_CODE
+- id: subProtocolId
+  name: Sub-protocol ID
+  type: LOOKUP
+  bits: 16
+  description: Autopilot transport
+  match: 5904
+  lookup: GARMIN_MESSAGE_ID
+  primaryKey: true
+- id: wrapperByte1
+  name: Wrapper Byte 1
+  type: UINT8
+  match: 4
+- id: wrapperByte2
+  name: Wrapper Byte 2
+  type: UINT8
+  match: 4
+- id: fieldGroup
+  name: Field Group
+  type: UINT8
+  description: Uint16 field record
+  match: 15
+- id: recordType
+  name: Record Type
+  type: UINT8
+  description: Value with trailer
+  match: 5
+- id: recordByte8
+  name: Record Byte 8
+  type: UINT8
+  description: 0x0A in every field record
+- id: field
+  name: Field
+  type: LOOKUP
+  bits: 8
+  lookup: GARMIN_AUTOPILOT_FIELD
+  primaryKey: true
+- id: fieldNamespace
+  name: Field Namespace
+  type: UINT8
+  description: High byte of the 16-bit field identifier
+  primaryKey: true
+- id: recordByte11
+  name: Record Byte 11
+  type: UINT8
+  description: 0x11 in every field record
+- id: valueCount
+  name: Value Count
+  type: UINT8
+  description: 0 in records without a value, 1 in records with one
+- id: recordByte13
+  name: Record Byte 13
+  type: UINT8
+  description: 0x19 in every record that carries a value
+- id: flags
+  name: Flags
+  type: UINT8
+  description: 0 or 1; constant per field
+- id: valueSize
+  name: Value Size
+  type: UNSIGNED_INTEGER
+  bits: 4
+  description: Length of Value in bytes
+- id: valueSizeHigh
+  name: Value Size High Bits
+  type: UNSIGNED_INTEGER
+  bits: 4
+  description: 2 in every record that carries a value
+- id: value
+  name: Value
+  type: UINT16
+- id: trailerKind
+  name: Trailer Kind
+  type: UINT8
+  description: List
+  match: 55
+- id: trailerLength
+  name: Trailer Length
+  type: UINT8
+  description: Bytes in the trailer after this field
+- id: entryCount
+  name: Entry Count
+  type: UINT8
+- id: entry1
+  name: Entry 1
+  type: UINT16
+- id: entry2
+  name: Entry 2
+  type: UINT16
+- id: entry3
+  name: Entry 3
+  type: UINT16
+- id: entry4
+  name: Entry 4
+  type: UINT16
+notes: |-
+  Garmin autopilot field record (sub-protocol 5904), Record Type 5: a type-4 value record followed by a
+  trailer of Trailer Kind, Trailer Length (bytes), and that many bytes. Trailer Kind 0x37 is a list: an
+  entry count, then that many values of the record's data type. Kinds 0x2F and 0x34 carry three values of
+  the record's data type, whose roles (range limits, step, default) are not identified. Field Group minus
+  10 is the data type, as in the other field records.
+samples:
+- raw: "2023-01-01-00:00:00.000,7,126720,0,255,29,e5,98,10,17,04,04,0f,05,0a,00,05,11,01,19,01,22,00,00,37,09,04,00,00,01,00,02,00,03,00"
+  expects:
+    subProtocolId: 5904
+    fieldGroup: 15
+    recordType: 5
+    field: 0
+    fieldNamespace: 5
+    valueCount: 1
+    flags: 1
+    valueSize: 2
+    value: 0
+    trailerKind: 55
+    trailerLength: 9
+    entryCount: 4
+    entry1: 0
+    entry2: 1
+    entry3: 2
+    entry4: 3
